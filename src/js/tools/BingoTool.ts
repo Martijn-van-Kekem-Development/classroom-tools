@@ -286,9 +286,12 @@ export class BingoTool extends ClassroomTool {
      * @override
      */
     protected initListeners(): void {
-        document.getElementById("button_printCards").addEventListener("click", () => {
+        window.addEventListener("beforeprint", () => {
             document.body.classList.remove("print-cards", "print");
             document.body.classList.add("print", "print-cards");
+        });
+
+        document.getElementById("button_printCards").addEventListener("click", () => {
             window.print();
         });
 
