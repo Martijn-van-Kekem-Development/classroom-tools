@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermometer - Negatieve getallen</title>
+    <script src="js/tools/ThermometerTool.js"></script>
+    <link rel="stylesheet" href="css/thermometer.css" />
+</head>
+<body>
+    <div class="options left">
+        <button data-action="-1">-1</button>
+        <button data-action="-5">-5</button>
+        <button data-action="-10">-10</button>
+    </div>
+    <div class="thermometer negative" id="container_thermometer">
+        <div class="bar-container">
+            <div class="fluid" id="progress_value"></div>
+            <ul id="list_steps">
+
+            </ul>
+        </div>
+        <div class="bulb">
+            <div class="value" id="label_value">0</div>
+            <div class="fluid"></div>
+        </div>
+    </div>
+    <div class="options right">
+        <button data-action="1">+1</button>
+        <button data-action="5">+5</button>
+        <button data-action="10">+10</button>
+    </div>
+</body>
+</html>
