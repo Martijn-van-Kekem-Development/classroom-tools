@@ -44,6 +44,10 @@ export class TemplateParser {
         exercise.steps = exercise.steps ?? [];
         exercise.parameters = exercise.parameters ?? [];
         exercise.roundedAnswer = exercise.roundedAnswer ?? exercise.answer;
+        exercise.settings = {
+            ...TemplateParser.getDefaultExerciseSettings(),
+            ...(exercise.settings ?? {})
+        }
 
         // Replace parameters
         const existingValues = new Map();
@@ -61,11 +65,11 @@ export class TemplateParser {
             existingValues.set(parameter.name, value);
         }
 
-        exercise.text = this.replaceCalculations(exercise.text);
-        exercise.answer = this.replaceCalculations(exercise.answer);
-        exercise.roundedAnswer = this.replaceCalculations(exercise.roundedAnswer, true);
+        exercise.text = this.replaceCalculations(exercise.text, exercise.settings);
+        exercise.answer = this.replaceCalculations(exercise.answer, exercise.settings);
+        exercise.roundedAnswer = this.replaceCalculations(exercise.roundedAnswer, exercise.settings, true);
         for (let i = 0; i < exercise.steps.length; i++)
-            exercise.steps[i] = this.replaceCalculations(exercise.steps[i]);
+            exercise.steps[i] = this.replaceCalculations(exercise.steps[i], exercise.settings);
 
         return exercise;
     }
@@ -90,9 +94,10 @@ export class TemplateParser {
     /**
      * Function to replace the calculations in a template.
      * @param input The input to replace the calculations in.
+     * @param settings The exercise settings.
      * @param finished Whether this is the final calculation step.
      */
-    private replaceCalculations(input: string, finished = false): string {
+    private replaceCalculations(input: string, settings: ExerciseSettings, finished = false): string {
         let inputMatches = input.matchAll(/%%([^%]+)%%/g);
         for (let match of inputMatches) {
             let value = match[0];
@@ -100,6 +105,9 @@ export class TemplateParser {
             let calcValue = this.truncate(Number(eval(calc)), finished);
             input = input.replace(value, calcValue);
         }
+
+        if (settings.replaceDoubleOperators)
+            input = TemplateParser.removeDoubleOperands(input);
 
         return input;
     }
@@ -111,7 +119,7 @@ export class TemplateParser {
      * @returns {*|null}
      */
     private static generateParameterValue(parameter: ExerciseParameter,
-                                          existingValues: Map<string, any>): any {
+                                          existingValues: Map<string, any>): string {
         let value = null;
         let notAllowed = [...(parameter.not ?? [])];
         for (let [key, val] of existingValues) {
@@ -128,12 +136,21 @@ export class TemplateParser {
         }
 
         // Return value
-        if (notAllowed.includes(value))
+        if (notAllowed.includes(String(value)))
             return TemplateParser.generateParameterValue(parameter, existingValues);
         else
-            return value;
+            return String(value);
     }
 
+    /**
+     * Get the default exercise settings.
+     * @private
+     */
+    private static getDefaultExerciseSettings(): ExerciseSettings {
+        return {
+            replaceDoubleOperators: false,
+        }
+    }
 
     /**
      * Get a random integer number.
@@ -154,6 +171,18 @@ export class TemplateParser {
     private static sanitize(input: string): string {
         return input.replaceAll("++", "+").replaceAll("--", "+");
     }
+
+    /**
+     * Sanitize double operands for mathematical expressions.
+     * @param input The input to sanitize.
+     */
+    private static removeDoubleOperands(input: string): string {
+        return input
+            .replaceAll("+-", "-")
+            .replaceAll("-+", "-")
+            .replaceAll("--", "+")
+            .replaceAll("++", "+");
+    }
 }
 
 
@@ -173,7 +202,12 @@ export interface CategoryExercise {
     answer: string,
     roundedAnswer?: string,
     steps?: string[],
-    parameters?: ExerciseParameter[]
+    parameters?: ExerciseParameter[],
+    settings?: ExerciseSettings
+}
+
+export interface ExerciseSettings {
+    replaceDoubleOperators: boolean,
 }
 
 export interface ExerciseParameter {
