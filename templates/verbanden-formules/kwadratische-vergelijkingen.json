@@ -1,0 +1,92 @@
+{
+  "name": "Verbanden en formules - Kwadratische vergelijkingen",
+  "categories": [
+    {
+      "name": "Ontbinden in factoren - Product-som methode",
+      "exercises": [
+        {
+          "_desc": "Alleen positieve getallen - x als letter",
+          "text": "Ontbind in factoren: $$x^2+%%{c1}+{c2}%%x+%%{c1}*{c2}%%$$",
+          "answer": "$$(x+{c1})(x+{c2})$$",
+          "steps": [
+            "$$ax^2+bx+c$$",
+            "Er geldt $$b=%%{c1}+{c2}%%$$ en $$c=%%{c1}*{c2}%%$$",
+            "$${c1}+{c2}=%%{c1}+{c2}%%$$",
+            "$${c1}\\cdot{c2}=%%{c1}*{c2}%%$$",
+            "Dus $$(x+{c1})(x+{c2})$$"
+          ],
+          "settings": {
+            "replaceDoubleOperators": true
+          },
+          "parameters": [
+            {"name": "c1", "int": {"min": 2, "max": 12}},
+            {"name": "c2", "int": {"min": 2, "max": 12}, "not": ["-{c1}"]}
+          ]
+        },
+        {
+          "_desc": "Positief en negatief - x als letter",
+          "text": "Ontbind in factoren: $$x^2+%%{c1}+{c2}%%x+%%{c1}*{c2}%%$$",
+          "answer": "$$(x+{c1})(x+{c2})$$",
+          "steps": [
+            "$$ax^2+bx+c$$",
+            "Er geldt $$b=%%{c1}+{c2}%%$$ en $$c=%%{c1}*{c2}%%$$",
+            "$${c1}+{c2}=%%{c1}+{c2}%%$$",
+            "$${c1}\\cdot{c2}=%%{c1}*{c2}%%$$",
+            "Dus $$(x+{c1})(x+{c2})$$"
+          ],
+          "settings": {
+            "replaceDoubleOperators": true
+          },
+          "parameters": [
+            {"name": "c1", "int": {"min": -12, "max": 12}, "not": ["0"]},
+            {"name": "c2", "int": {"min": -12, "max": 12}, "not": ["0", "-{c1}"]}
+          ]
+        },
+        {
+          "_desc": "Positief en negatief - Willekeurige letters",
+          "text": "Ontbind in factoren: $${v1}^2+%%{c1}+{c2}%%{v1}+%%{c1}*{c2}%%$$",
+          "answer": "$$({v1}+{c1})({v1}+{c2})$$",
+          "steps": [
+            "$$a{v1}^2+b{v1}+c$$",
+            "Er geldt $$b=%%{c1}+{c2}%%$$ en $$c=%%{c1}*{c2}%%$$",
+            "$${c1}+{c2}=%%{c1}+{c2}%%$$",
+            "$${c1}\\cdot{c2}=%%{c1}*{c2}%%$$",
+            "Dus $$({v1}+{c1})({v1}+{c2})$$"
+          ],
+          "settings": {
+            "replaceDoubleOperators": true
+          },
+          "parameters": [
+            {"name": "v1", "or": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]},
+            {"name": "c1", "int": {"min": -12, "max": 12}, "not": ["0"]},
+            {"name": "c2", "int": {"min": -12, "max": 12}, "not": ["0", "-{c1}"]}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kwadratische vergelijking oplossen - Product-som methode",
+      "exercises": [
+        {
+          "_desc": "Positief en negatief - x als letter, met getal voor x",
+          "text": "Los op: $${c3}x^2+%%{c3}*({c1}+{c2})%%x+%%{c3}*{c1}*{c2}%%=0$$",
+          "answer": "$$x=%%-1*{c1}%%\\vee x=%%-1*{c2}%%$$",
+          "steps": [
+            "Delen door $${c3}$$ geeft $$x^2+%%{c1}+{c2}%%x+%%{c1}*{c2}%%=0$$",
+            "Product-som: $$(x+{c1})(x+{c2})=0$$",
+            "$$x+{c1}=0\\vee x+{c2}=0$$",
+            "$$x=%%-1*{c1}%%\\vee x=%%-1*{c2}%%$$"
+          ],
+          "settings": {
+            "replaceDoubleOperators": true
+          },
+          "parameters": [
+            {"name": "c1", "int": {"min": -12, "max": 12}, "not": ["0"]},
+            {"name": "c2", "int": {"min": -12, "max": 12}, "not": ["0", "-{c1}"]},
+            {"name": "c3", "int": {"min": -4, "max": 4}, "not": ["0", "1"]}
+          ]
+        }
+      ]
+    }
+  ]
+}
