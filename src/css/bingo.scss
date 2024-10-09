@@ -7,7 +7,7 @@
     left: 0;
     top: 0;
     font-size: 1.5rem;
-    background-color: #bcbcbc;
+    background-color: #cecece;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +20,7 @@
     }
 
     .inner-container {
-        background-color: white;
+        background-color: #fff;
         padding: 1.5rem;
         border-radius: 0.3rem;
         width: 90%;
@@ -64,6 +64,11 @@
         border-radius: 0.2rem;
         border: none;
         font-size: 0.7em;
+    }
+
+    .option-buttons button {
+        background-color: #bababa;
+        color: #000;
     }
 }
 
