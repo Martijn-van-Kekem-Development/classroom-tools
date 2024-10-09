@@ -2,9 +2,6 @@
   "compilerOptions": {
     "outDir": "../../public/js/",
     "target": "ES2017",
-    "types": [
-      "chrome"
-    ],
     "lib": [
       "dom",
       "es2021",

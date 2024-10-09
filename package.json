@@ -2,12 +2,16 @@
   "name": "classroom-tools",
   "version": "1.0.0",
   "scripts": {
-    "dev": "concurrently --kill-others \"npm run dev:css\"",
+    "dev": "concurrently --kill-others \"npm run dev:css\" \"npm run dev:js\"",
     "dev:css": "npm run build:css -- --watch",
-    "build:css": "sass ./src/css:./public/css --style compressed --no-source-map"
+    "dev:js": "npm run build:js -- --watch",
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "sass ./src/css:./public/css --style compressed --no-source-map",
+    "build:js": "./node_modules/typescript/bin/tsc -p ./src/js/tsconfig.json"
   },
   "devDependencies": {
     "concurrently": "^9.0.1",
-    "sass": "^1.79.4"
+    "sass": "^1.79.4",
+    "typescript": "^5.6.3"
   }
 }
