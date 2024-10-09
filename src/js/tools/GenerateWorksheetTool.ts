@@ -44,7 +44,13 @@ export class GenerateWorksheetTool extends ClassroomTool {
 
             // Add answer
             let answerEl = document.createElement("li");
-            answerEl.innerHTML = exercise.answer;
+
+            if (exercise.answer !== exercise.roundedAnswer) {
+                answerEl.innerHTML = `${exercise.answer} $$\\approx$$ ${exercise.roundedAnswer}`;
+            } else {
+                answerEl.innerHTML = exercise.answer;
+            }
+
             answers.append(answerEl);
         }
 

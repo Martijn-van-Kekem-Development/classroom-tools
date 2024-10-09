@@ -43,6 +43,7 @@ export class TemplateParser {
         const exercise = JSON.parse(JSON.stringify(category.exercises[exerciseIndex])) as CategoryExercise;
         exercise.steps = exercise.steps ?? [];
         exercise.parameters = exercise.parameters ?? [];
+        exercise.roundedAnswer = exercise.roundedAnswer ?? exercise.answer;
 
         // Replace parameters
         const existingValues = new Map();
@@ -52,6 +53,7 @@ export class TemplateParser {
             // Update all strings with this new value
             exercise.text = exercise.text.replaceAll(`{${parameter.name}}`, value);
             exercise.answer = exercise.answer.replaceAll(`{${parameter.name}}`, value);
+            exercise.roundedAnswer = exercise.roundedAnswer.replaceAll(`{${parameter.name}}`, value);
             for (let i = 0; i < exercise.steps.length; i++) {
                 exercise.steps[i] = exercise.steps[i].replaceAll(`{${parameter.name}}`, value);
             }
@@ -60,8 +62,8 @@ export class TemplateParser {
         }
 
         exercise.text = this.replaceCalculations(exercise.text);
-        exercise.rawAnswer = this.replaceCalculations(exercise.answer);
-        exercise.answer = this.replaceCalculations(exercise.answer, true);
+        exercise.answer = this.replaceCalculations(exercise.answer);
+        exercise.roundedAnswer = this.replaceCalculations(exercise.roundedAnswer, true);
         for (let i = 0; i < exercise.steps.length; i++)
             exercise.steps[i] = this.replaceCalculations(exercise.steps[i]);
 
@@ -169,7 +171,7 @@ export interface TemplateCategory {
 export interface CategoryExercise {
     text: string,
     answer: string,
-    rawAnswer: string,
+    roundedAnswer?: string,
     steps?: string[],
     parameters?: ExerciseParameter[]
 }

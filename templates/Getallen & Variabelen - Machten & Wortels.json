@@ -1,0 +1,98 @@
+{
+    "name": "Getallen & Variabelen - Machten & wortels",
+    "categories": [
+        {
+            "name": "Basis (kwadraten en wortels, zonder rekenmachine)",
+            "exercises": [
+                {
+                    "text": "$$\\sqrt{%%{c1}*{c1}%%}$$",
+                    "answer": "$$%%Math.sqrt({c1}*{c1})%%$$",
+                    "parameters": [
+                        {"name": "c1", "int": {"min": 2, "max": 18}}
+                    ]
+                },
+                {
+                    "text": "$${c1}^2$$",
+                    "answer": "$$%%Math.pow({c1}, 2)%%$$",
+                    "parameters": [
+                        {"name": "c1", "int": {"min": 2, "max": 19}}
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Basis (hogere machten & wortels)",
+            "exercises": [
+                {
+                    "text": "$$\\sqrt[{c2}]{%%{c1}%%}$$",
+                    "answer": "$$%%Math.pow({c1}, 1/{c2})%%$$",
+                    "roundedAnswer": "$$%%Math.pow({c1}, 1/{c2})%%$$",
+                    "parameters": [
+                        {"name": "c1", "int": {"min": 2, "max": 11}},
+                        {"name": "c2", "int": {"min": 2, "max": 6}}
+                    ]
+                },
+                {
+                    "text": "$${c1}^{c2}$$",
+                    "answer": "$$%%Math.pow({c1}, {c2})%%$$",
+                    "parameters": [
+                        {"name": "c1", "int": {"min": 2, "max": 11}},
+                        {"name": "c2", "int": {"min": 2, "max": 6}}
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Gemiddeld (hogere machten & wortels door elkaar)",
+            "exercises": [
+                {
+                    "text": "$$\\sqrt{%%{c1}*{c1}%%}{op1}{c2}^2$$",
+                    "steps": [
+                        "$$\\sqrt{%%{c1}*{c1}%%}{op1}{c2}^2$$",
+                        "$${c1}{op1}{c2}^2$$",
+                        "$${c1}{op1}%%Math.pow({c2}, 2)%%$$",
+                        "$$%%{c1}{op1}Math.pow({c2}, 2)%%$$"
+                    ],
+                    "answer": "$$%%{c1}{op1}Math.pow({c2}, 2)%%$$",
+                    "parameters": [
+                        {"name": "c1", "int": {"min": 2, "max": 18}},
+                        {"name": "c2", "int": {"min": 2, "max": 18}},
+                        {"name": "op1", "or": ["+", "-"]}
+                    ]
+                },
+                {
+                    "text": "$$\\sqrt[{c3}]{%%Math.pow({c1}, {c3})%%}{op1}{c2}^{c4}$$",
+                    "steps": [
+                        "$$\\sqrt[{c3}]{%%Math.pow({c1}, {c3})%%}{op1}{c2}^{c4}$$",
+                        "$${c1}{op1}{c2}^{c4}$$",
+                        "$${c1}{op1}%%Math.pow({c2}, {c4})%%$$",
+                        "$$%%{c1}{op1}Math.pow({c2}, {c4})%%$$"
+                    ],
+                    "answer": "$$%%{c1}{op1}Math.pow({c2}, {c4})%%$$",
+                    "parameters": [
+                        {"name": "c1", "int": {"min": 2, "max": 18}},
+                        {"name": "c2", "int": {"min": 2, "max": 18}},
+                        {"name": "c3", "int": {"min": 2, "max": 6}},
+                        {"name": "c4", "int": {"min": 2, "max": 6}},
+                        {"name": "op1", "or": ["+", "-"]}
+                    ]
+                },
+                {
+                    "text": "$${c2}^2{op1}\\sqrt{%%{c1}*{c1}%%}$$",
+                    "steps": [
+                        "$${c2}^2{op1}\\sqrt{%%{c1}*{c1}%%}$$",
+                        "$$%%Math.pow({c2}, 2)%%{op1}\\sqrt{%%{c1}*{c1}%%}$$",
+                        "$$%%Math.pow({c2}, 2)%%{op1}{c1}$$",
+                        "$$%%Math.pow({c2}, 2){op1}{c1}%%$$"
+                    ],
+                    "answer": "$$%%Math.pow({c2}, 2){op1}{c1}%%$$",
+                    "parameters": [
+                        {"name": "c1", "int": {"min": 2, "max": 18}},
+                        {"name": "c2", "int": {"min": 2, "max": 18}},
+                        {"name": "op1", "or": ["+", "-"]}
+                    ]
+                }
+            ]
+        }
+    ]
+}

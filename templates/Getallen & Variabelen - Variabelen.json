@@ -1,0 +1,137 @@
+{
+    "name": "Getallen & Variabelen: variabelen",
+    "categories": [
+        {
+            "name": "Makkelijk (1 variabele)",
+            "exercises": [
+                {
+                    "text": "Bereken $${c1}{v1}{op1}{c2}$$ voor $${v1}={c3}$$",
+                    "steps": [
+                        "$${c1}\\cdot {v1}{op1}{c2}$$ met $${v1}={c3}$$",
+                        "$${c1}\\cdot {c3}{op1}{c2}$$",
+                        "$$%%{c1}*{c3}%%{op1}{c2}$$",
+                        "$$%%{c1}*{c3}{op1}{c2}%%$$"
+                    ],
+                    "answer": "$$%%{c1}*{c3}{op1}{c2}%%$$",
+                    "parameters": [
+                        {"name": "c1", "int": {"min": -9, "max": 9}, "not": [-1, 0, 1]},
+                        {"name": "c2", "int": {"min": 2, "max": 18}},
+                        {"name": "c3", "int": {"min": -9, "max": 9}, "not": [-1, 0, 1]},
+                        {"name": "op1", "or": ["+", "-"]},
+                        {"name": "v1", "or": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]}
+                    ]
+                },
+                {
+                    "text": "Bereken $${op1}{v1}{op2}{c1}$$ voor $${v1}={c2}$$",
+                    "steps": [
+                        "$${op1}{v1}{op2}{c1}$$ met $${v1}={c2}$$",
+                        "$${op1}{c2}{op2}{c1}$$",
+                        "$$%%{op1}{c2}%%{op2}{c1}$$",
+                        "$$%%{op1}{c2}{op2}{c1}%%$$"
+                    ],
+                    "answer": "$$%%{op1}{c2}{op2}{c1}%%$$",
+                    "parameters": [
+                        {"name": "c1", "int": {"min": -9, "max": 9}, "not": [-1, 0, 1]},
+                        {"name": "c2", "int": {"min": -9, "max": 9}, "not": [0]},
+                        {"name": "op1", "or": ["", "-"]},
+                        {"name": "op2", "or": ["+", "-"]},
+                        {"name": "v1", "or": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]}
+                    ]
+                },
+                {
+                    "text": "Bereken $${c1}{op1}{v1}$$ voor $${v1}={c2}$$",
+                    "steps": [
+                        "$${c1}{op1}{v1}$$ met $${v1}={c2}$$",
+                        "$${c1}{op1}{c2}$$",
+                        "$$%%{c1}{op1}{c2}%%$$"
+                    ],
+                    "answer": "$$%%{c1}{op1}{c2}%%$$",
+                    "parameters": [
+                        {"name": "c1", "int": {"min": -9, "max": 9}, "not": [-1, 0, 1]},
+                        {"name": "c2", "int": {"min": -9, "max": 9}, "not": [0]},
+                        {"name": "op1", "or": ["+", "-"]},
+                        {"name": "v1", "or": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]}
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Gemiddeld (meerdere variabelen, rekenvolgorde)",
+            "exercises": [
+                {
+                    "text": "Bereken $${c1}{v1}{op1}{c2}{v1}{op2}{c3}$$ voor $${v1}={c4}$$",
+                    "steps": [
+                        "$${c1}{v1}{op1}{c2}{v1}{op2}{c3}$$ met $${v1}={c4}$$",
+                        "$${c1}\\cdot {c4}{op1}{c2}\\cdot {c4}{op2}{c3}$$",
+                        "$$%%{c1}*{c4}%%{op1}{c2}\\cdot {c4}{op2}{c3}$$",
+                        "$$%%{c1}*{c4}%%{op1}%%{c2}*{c4}%%{op2}{c3}$$",
+                        "$$%%{c1}*{c4}{op1}{c2}*{c4}%%{op2}{c3}$$",
+                        "$$%%{c1}*{c4}{op1}{c2}*{c4}{op2}{c3}%%$$"
+                    ],
+                    "answer": "$$%%{c1}*{c4}{op1}{c2}*{c4}{op2}{c3}%%$$",
+                    "parameters": [
+                        {"name": "c1", "int": {"min": -9, "max": 9}, "not": [-1, 0, 1]},
+                        {"name": "c2", "int": {"min": -9, "max": 9}, "not": [-1, 0, 1]},
+                        {"name": "c3", "int": {"min": -9, "max": 9}, "not": [0]},
+                        {"name": "c4", "int": {"min": -9, "max": 9}, "not": [0]},
+                        {"name": "op1", "or": ["+", "-"]},
+                        {"name": "op2", "or": ["+", "-"]},
+                        {"name": "v1", "or": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]}
+                    ]
+                },
+                {
+                    "text": "Bereken $${c1}{v1}{op1}{c2}{v2}{op2}{c3}$$ voor $${v1}={c4}$$, $${v2}={c5}$$",
+                    "steps": [
+                        "$${c1}{v1}{op1}{c2}{v2}{op2}{c3}$$ met $${v1}={c4}$$, $${v2}={c5}$$",
+                        "$${c1}\\cdot {c4}{op1}{c2}\\cdot {c5}{op2}{c3}$$",
+                        "$$%%{c1}*{c4}%%{op1}{c2}\\cdot {c5}{op2}{c3}$$",
+                        "$$%%{c1}*{c4}%%{op1}%%{c2}*{c5}%%{op2}{c3}$$",
+                        "$$%%{c1}*{c4}{op1}{c2}*{c5}%%{op2}{c3}$$",
+                        "$$%%{c1}*{c4}{op1}{c2}*{c5}{op2}{c3}%%$$"
+                    ],
+                    "answer": "$$%%{c1}*{c4}{op1}{c2}*{c5}{op2}{c3}%%$$",
+                    "parameters": [
+                        {"name": "c1", "int": {"min": -9, "max": 9}, "not": [-1, 0, 1]},
+                        {"name": "c2", "int": {"min": -9, "max": 9}, "not": [-1, 0, 1]},
+                        {"name": "c3", "int": {"min": -9, "max": 9}, "not": [0]},
+                        {"name": "c4", "int": {"min": -9, "max": 9}, "not": [0]},
+                        {"name": "c5", "int": {"min": -9, "max": 9}, "not": [0]},
+                        {"name": "op1", "or": ["+", "-"]},
+                        {"name": "op2", "or": ["+", "-"]},
+                        {"name": "v1", "or": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]},
+                        {"name": "v2", "or": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"], "not": ["{v1}"]}
+                    ]
+                },
+                {
+                    "text": "Bereken $${c1}{v1}{op1}{c2}{v2}{op2}{c3}{v3}{op3}{c4}$$ voor $${v1}={c5}$$, $${v2}={c6}$$, $${v3}={c7}$$",
+                    "steps": [
+                        "$${c1}{v1}{op1}{c2}{v2}{op2}{c3}{v3}{op3}{c4}$$ met $${v1}={c5}$$, $${v2}={c6}$$, $${v3}={c7}$$",
+                        "$${c1}\\cdot {c5}{op1}{c2}\\cdot {c6}{op2}{c3}\\cdot {c7}{op3}{c4}$$",
+                        "$$%%{c1}*{c5}%%{op1}{c2}\\cdot {c6}{op2}{c3}\\cdot {c7}{op3}{c4}$$",
+                        "$$%%{c1}*{c5}%%{op1}%%{c2}*{c6}%%{op2}{c3}\\cdot {c7}{op3}{c4}$$",
+                        "$$%%{c1}*{c5}%%{op1}%%{c2}*{c6}%%{op2}%%{c3}*{c7}%%{op3}{c4}$$",
+                        "$$%%{c1}*{c5}{op1}{c2}*{c6}%%{op2}%%{c3}*{c7}%%{op3}{c4}$$",
+                        "$$%%{c1}*{c5}{op1}{c2}*{c6}{op2}{c3}*{c7}%%{op3}{c4}$$",
+                        "$$%%{c1}*{c5}{op1}{c2}*{c6}{op2}{c3}*{c7}{op3}{c4}%%$$"
+                    ],
+                    "answer": "$$%%{c1}*{c5}{op1}{c2}*{c6}{op2}{c3}*{c7}{op3}{c4}%%$$",
+                    "parameters": [
+                        {"name": "c1", "int": {"min": -9, "max": 9}, "not": [-1, 0, 1]},
+                        {"name": "c2", "int": {"min": -9, "max": 9}, "not": [-1, 0, 1]},
+                        {"name": "c3", "int": {"min": -9, "max": 9}, "not": [-1, 0, 1]},
+                        {"name": "c4", "int": {"min": -9, "max": 9}, "not": [0]},
+                        {"name": "c5", "int": {"min": -9, "max": 9}, "not": [0]},
+                        {"name": "c6", "int": {"min": -9, "max": 9}, "not": [0]},
+                        {"name": "c7", "int": {"min": -9, "max": 9}, "not": [0]},
+                        {"name": "op1", "or": ["+", "-"]},
+                        {"name": "op2", "or": ["+", "-"]},
+                        {"name": "op3", "or": ["+", "-"]},
+                        {"name": "v1", "or": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]},
+                        {"name": "v2", "or": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"], "not": ["{v1}"]},
+                        {"name": "v3", "or": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"], "not": ["{v1}", "{v2}"]}
+                    ]
+                }
+            ]
+        }
+    ]
+}

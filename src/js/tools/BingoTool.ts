@@ -165,9 +165,9 @@ export class BingoTool extends ClassroomTool {
                 const col = document.createElement("td");
                 col.setAttribute("data-row", `${i}`);
                 col.setAttribute("data-col", `${j}`);
-                col.setAttribute("data-value", exercises[i * size + j].rawAnswer)
+                col.setAttribute("data-value", exercises[i * size + j].answer)
 
-                col.innerHTML = exercises[i * size + j].answer;
+                col.innerHTML = exercises[i * size + j].roundedAnswer;
                 row.append(col);
             }
             body.append(row);
@@ -225,7 +225,7 @@ export class BingoTool extends ClassroomTool {
     protected colorDrawnAnswers() {
         for (let exercise of [this.currentDraw, ...this.drawHistory]) {
             const answerCells = document.querySelectorAll<HTMLElement>(
-                `#cards td[data-value="${CSS.escape(exercise.rawAnswer)}"]`);
+                `#cards td[data-value="${CSS.escape(exercise.answer)}"]`);
 
             for (let item of answerCells) {
                 item.classList.add("completed");
@@ -271,7 +271,7 @@ export class BingoTool extends ClassroomTool {
 
         // Set all completed exercises to green
         const answerCells = document.querySelectorAll<HTMLElement>(
-            `#cards td[data-value="${CSS.escape(this.currentDraw.rawAnswer)}"]`);
+            `#cards td[data-value="${CSS.escape(this.currentDraw.answer)}"]`);
         for (let item of answerCells) {
             item.classList.add("completed");
         }
