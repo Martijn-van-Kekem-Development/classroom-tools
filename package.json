@@ -1,0 +1,13 @@
+{
+  "name": "classroom-tools",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently --kill-others \"npm run dev:css\"",
+    "dev:css": "npm run build:css -- --watch",
+    "build:css": "sass ./src/css:./public/css --style compressed --no-source-map"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "sass": "^1.79.4"
+  }
+}

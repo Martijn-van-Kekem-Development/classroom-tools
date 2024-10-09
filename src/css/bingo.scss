@@ -1,0 +1,129 @@
+@use "main";
+
+.step.full-screen {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    font-size: 1.5rem;
+    background-color: #bcbcbc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .option-buttons {
+        position: fixed;
+        right: 1rem;
+        top: 1rem;
+    }
+
+    .inner-container {
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: 0.3rem;
+        width: 90%;
+        min-width: 500px;
+        max-width: 800px;
+
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+    }
+
+    h2, h3 {
+        margin: 0;
+    }
+
+    .current-draw {
+        min-height: 2rem;
+        margin-block: 3rem;
+        font-size: 1.5rem;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0.5rem 0 0 0;
+        padding: 0;
+
+         li {
+             margin: 0;
+             padding-block: 0.5rem;
+             font-size: 1.2rem;
+         }
+    }
+
+    button {
+        appearance: none;
+        background: #2196F3;
+        color: #fff;
+        padding: 0.7rem 1rem;
+        user-select: none;
+        cursor: pointer;
+        border-radius: 0.2rem;
+        border: none;
+        font-size: 0.7em;
+    }
+}
+
+body.print-cards {
+    .step .container-cards {
+        display: block;
+    }
+
+    .step .container-cards h2 {
+        display: none;
+    }
+
+    .step > button {
+        display: none;
+    }
+}
+
+.container-cards {
+    counter-reset: cardIndex;
+
+    #cards > div {
+        page-break-after: always;
+        padding-top: 1rem;
+    }
+
+    table {
+        --cell-size: 5.5rem;
+        --cols: 4;
+        --rows: 4;
+
+        table-layout: fixed;
+        border-collapse: collapse;
+        counter-increment: cardIndex;
+        width: calc(var(--cell-size)* var(--cols));
+        height: calc(var(--cell-size)* var(--rows));
+
+        &::before {
+            content: "Bingokaart " counter(cardIndex);
+            text-wrap: nowrap;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 3rem;
+        }
+    }
+
+    table tr td {
+        width: var(--cell-size);
+        height: var(--cell-size);
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        overflow: hidden;
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid #000;
+
+        &.completed {
+            background-color: rgb(76 175 108 / 64%);
+        }
+    }
+}

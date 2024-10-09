@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "outDir": "../../public/js/",
+    "target": "ES2017",
+    "types": [
+      "chrome"
+    ],
+    "lib": [
+      "dom",
+      "es2021",
+      "es2019",
+      "es2017",
+      "es2018.promise",
+      "dom.iterable"
+    ],
+    "removeComments": true
+  }
+}

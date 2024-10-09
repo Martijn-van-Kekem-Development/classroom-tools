@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+    <script src="js/tools/BingoTool.js" type="module"></script>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/bingo.css" />
+</head>
+<body>
+<div class="container">
+    <div class="inner">
+        <div class="step small" data-step="-2">
+            Er kunnen niet genoeg unieke opgaven gegenereerd worden met het opgegeven template. Pas het aantal of formaat van de bingokaarten aan, of kies een andere template.
+        </div>
+        <div class="step small" data-step="-1">
+            De opgegeven template heeft geen geldig formaat. Ververs de pagina en probeer het opnieuw met een andere template.
+        </div>
+        <div class="step active small" data-step="0">
+            <h1>Bingo</h1>
+            <form enctype="multipart/form-data">
+                <label for="file">Kies een template om de bingokaarten te genereren:</label>
+                <input id="file" name="file" type="file" />
+            </form>
+        </div>
+        <div class="step" data-step="1">
+            <h2 id="label_templateName"></h2>
+            <label for="input_amount">
+                Aantal bingokaarten:
+            </label>
+            <input id="input_amount" value="25" type="number" min="1" /><br><br>
+            <label for="input_rows">
+                Aantal rijen/kolommen per bingokaart:
+            </label>
+            <input id="input_rows" value="5" type="number" min="1" /><br><br>
+            <label>
+                Categorie:
+            </label>
+            <div class="button-container" id="container_categories">
+
+            </div>
+        </div>
+        <div class="step" data-step="2">
+            <button id="button_printCards">Print bingokaarten</button>
+            <button id="button_startBingo">Beginnen met spelen</button>
+            <button id="button_clearCards">Nieuwe bingokaarten maken</button>
+            <div class="align-left container-cards">
+                <h2>Bingokaarten</h2>
+                <div id="cards">
+                </div>
+            </div>
+        </div>
+        <div class="step full-screen" data-step="3">
+            <div class="option-buttons">
+                <button id="button_stopPlaying">Sluiten</button>
+                <button id="button_restartPlaying">Herstarten</button>
+            </div>
+            <div class="inner-container">
+                <h2>Bingo</h2>
+                <div class="current-draw" id="label_currentDraw"></div>
+                <button id="button_nextDraw">Volgende</button>
+            </div>
+            <div class="inner-container">
+                <h3>Eerder</h3>
+                <ul id="list_previousDraws">
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

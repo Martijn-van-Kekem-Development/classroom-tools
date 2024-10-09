@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Werkblad genereren</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+    <script src="js/tools/GenerateWorksheetTool.js" type="module"></script>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/worksheet.css" />
+</head>
+<body>
+<div class="container">
+    <div class="inner">
+        <div class="step small" data-step="-1">
+            De opgegeven template heeft geen geldig formaat. Ververs de pagina en probeer het opnieuw met een andere template.
+        </div>
+        <div class="step active small" data-step="0">
+            <h1>Werkblad genereren</h1>
+            <form enctype="multipart/form-data">
+                <label for="file">Kies een template om een werkblad te genereren:</label>
+                <input id="file" name="file" type="file" />
+            </form>
+        </div>
+        <div class="step" data-step="1">
+            <h2 id="label_templateName"></h2>
+            <label for="input_amount">
+                Aantal sommen:
+            </label>
+            <input id="input_amount" value="25" type="number" min="1" /><br><br>
+            <label>
+                Categorie:
+            </label>
+            <div class="button-container" id="container_categories">
+
+            </div>
+        </div>
+        <div class="step" data-step="2">
+            <button id="button_printExercises">Print opgaven</button>
+            <button id="button_printElaborations">Print uitwerkingen</button>
+            <button id="button_printAnswers">Print antwoorden</button>
+            <div class="align-left container-exercises">
+                <h2>Opgaven</h2>
+                <ol id="exercises">
+                </ol>
+            </div>
+            <div class="align-left container-elaborations">
+                <h2>Uitwerkingen</h2>
+                <ol id="elaborations">
+                </ol>
+            </div>
+            <div class="align-left container-answers">
+                <h2>Antwoorden</h2>
+                <ol id="answers">
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
