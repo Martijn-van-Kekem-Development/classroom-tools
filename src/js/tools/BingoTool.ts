@@ -240,7 +240,13 @@ export class BingoTool extends ClassroomTool {
     protected updateDrawContainer() {
         // Update current draw
         const currentDrawLabel = document.getElementById("label_currentDraw");
-        currentDrawLabel.innerHTML = this.currentDraw?.text ?? "";
+
+        currentDrawLabel.classList.add("fade-out");
+        setTimeout(() => {
+            currentDrawLabel.innerHTML = this.currentDraw?.text ?? "";
+            currentDrawLabel.classList.remove("fade-out");
+            BingoTool.renderMathInElement(currentDrawLabel);
+        }, 300);
 
         // Update previous draws
         const container = document.getElementById("list_previousDraws");
@@ -253,7 +259,6 @@ export class BingoTool extends ClassroomTool {
             container.append(item);
         }
 
-        BingoTool.renderMathInElement(currentDrawLabel);
         BingoTool.renderMathInElement(container);
     }
 

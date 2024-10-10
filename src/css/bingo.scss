@@ -40,6 +40,12 @@
         min-height: 2rem;
         margin-block: 3rem;
         font-size: 1.5rem;
+        opacity: 1;
+        transition: opacity 0.3s;
+
+        &.fade-out {
+            opacity: 0;
+        }
     }
 
     ul {
