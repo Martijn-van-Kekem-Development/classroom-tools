@@ -8,6 +8,12 @@ export abstract class ClassroomTool {
     protected parser: TemplateParser;
 
     /**
+     * The current step.
+     * @protected
+     */
+    protected currentStep: number = 0;
+
+    /**
      * The template JSON save key.
      * @private
      */
@@ -55,6 +61,8 @@ export abstract class ClassroomTool {
         if (force !== null) {
             newStep = Number(force);
         }
+
+        this.currentStep = newStep;
 
         currentStep.classList.remove("active");
         document.querySelector(`.step[data-step="${newStep}"]`)?.classList.add("active");

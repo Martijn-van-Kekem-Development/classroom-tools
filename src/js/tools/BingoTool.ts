@@ -283,6 +283,24 @@ export class BingoTool extends ClassroomTool {
     }
 
     /**
+     * When a key is pressed.
+     * @param e The event that fired.
+     * @protected
+     */
+    protected onKeyPress(e: KeyboardEvent) {
+        if (this.currentStep === 3) {
+            // Playing bingo screen is active.
+
+            if (e.key === "PageDown" || e.key === "ArrowRight") {
+                // Right arrow or next-button of presenter is pressed.
+                e.preventDefault();
+                e.stopPropagation();
+                this.nextDraw();
+            }
+        }
+    }
+
+    /**
      * @override
      */
     protected initListeners(): void {
@@ -309,6 +327,8 @@ export class BingoTool extends ClassroomTool {
 
         document.getElementById("button_startBingo").addEventListener("click",
             () => this.startPlaying());
+
+        document.addEventListener("keyup", e => this.onKeyPress(e));
 
         window.addEventListener("afterprint", () => {
             document.body.classList.remove("print-cards", "print");
