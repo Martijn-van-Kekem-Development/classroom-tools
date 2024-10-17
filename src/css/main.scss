@@ -45,24 +45,6 @@ html, body {
     text-align: left;
 }
 
-li {
-    margin-bottom: 1rem;
-    padding-left: 0.5rem;
-}
-
-div ol li ol li {
-    margin-bottom: 0.5rem;
-}
-
-div > ol > li::marker {
-    font-weight: bold;
-}
-
-div > ol > li ol {
-    list-style: none;
-    padding-left: 0;
-}
-
 h2 {
     margin-bottom: 0.4rem;
 }

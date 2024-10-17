@@ -3,3 +3,25 @@ body.print-elaborations .step .container-elaborations,
 body.print-exercises .step .container-exercises {
     display: block;
 }
+
+
+li {
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+}
+
+div ol li ol li {
+    margin-bottom: 0.5rem;
+}
+
+div > ol {
+    & > li::marker {
+        font-weight: bold;
+    }
+
+    & > li ol {
+        list-style: none;
+        padding-left: 0;
+        page-break-inside: avoid;
+    }
+}
