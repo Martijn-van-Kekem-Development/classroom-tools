@@ -27,7 +27,7 @@ export class GenerateWorksheetTool extends ClassroomTool {
             if (exercise.steps.length > 0) {
                 let innerEl = document.createElement("ol");
                 let previousStep = null;
-                for (let step of exercise.steps) {
+                for (let step of [exercise.text, ...exercise.steps]) {
                     if (step === previousStep) continue;
 
                     let stepEl = document.createElement("li");
