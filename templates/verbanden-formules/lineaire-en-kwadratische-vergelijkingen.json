@@ -1,0 +1,138 @@
+{
+  "name": "Verbanden en formules - Lineaire- en kwadratische vergelijkingen",
+  "categories": [
+    {
+      "name": "Vergelijkingen oplossen",
+      "exercises": [
+        {
+          "_desc": "Lineair - basis",
+          "text": "$${c1}+{c2}{v1}={c3}{v1}+{c4}$$",
+          "steps": [
+            "$${c1}+{c2}{v1}={c3}{v1}+{c4}$$",
+            "$${c1}+%%{c2}-{c3}%%{v1}={c4}$$",
+            "$$%%{c2}-{c3}%%{v1}=%%{c4}-{c1}%%$$",
+            "$${v1}=\\frac{%%{c4}-{c1}%%}{%%{c2}-{c3}%%}=%%(({c4}-{c1})/({c2}-{c3}))%%$$"
+          ],
+          "answer": "$${v1}=\\frac{%%{c4}-{c1}%%}{%%{c2}-{c3}%%}=%%(({c4}-{c1})/({c2}-{c3}))%%$$",
+          "settings": {
+            "replaceDoubleOperators": true
+          },
+          "parameters": [
+            {"name": "c1", "int": {"min": -8, "max": 8}, "not": ["0"]},
+            {"name": "c2", "int": {"min": -8, "max": 8}, "not": ["0"]},
+            {"name": "c3", "int": {"min": -8, "max": 8}, "not": ["0", "{c2}"]},
+            {"name": "c4", "int": {"min": -8, "max": 8}, "not": ["0", "{c1}"]},
+            {"name": "op1", "or": ["", "-"]},
+            {"name": "op2", "or": ["", "-"]},
+            {"name": "v1", "or": ["d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]}
+          ]
+        },
+        {
+          "_desc": "Lineair - met letters herleiden",
+          "text": "$${c1}+{c2}{v1}+{c3}+{c4}{v1}={c5}{v1}+{c6}+{c7}{v1}+{c8}$$",
+          "steps": [
+            "$${c1}+{c2}{v1}+{c3}+{c4}{v1}={c5}{v1}+{c6}+{c7}{v1}+{c8}$$",
+            "$$%%{c1}+{c3}%%+%%{c2}+{c4}%%{v1}=%%{c5}+{c7}%%{v1}+%%{c6}+{c8}%%$$",
+            "$$%%{c1}+{c3}%%+%%({c2}+{c4})-({c5}+{c7})%%{v1}=%%{c6}+{c8}%%$$",
+            "$$%%({c2}+{c4})-({c5}+{c7})%%{v1}=%%({c6}+{c8})-({c1}+{c3})%%$$",
+            "$${v1}=\\frac{%%({c6}+{c8})-({c1}+{c3})%%}{%%({c2}+{c4})-({c5}+{c7})%%}=%%(({c6}+{c8})-({c1}+{c3}))/(({c2}+{c4})-({c5}+{c7}))%%$$"
+          ],
+          "answer": "$${v1}=\\frac{%%({c6}+{c8})-({c1}+{c3})%%}{%%({c2}+{c4})-({c5}+{c7})%%}=%%(({c6}+{c8})-({c1}+{c3}))/(({c2}+{c4})-({c5}+{c7}))%%$$",
+          "settings": {
+            "replaceDoubleOperators": true
+          },
+          "parameters": [
+            {"name": "c1", "int": {"min": -8, "max": 8}, "not": ["0"]},
+            {"name": "c2", "int": {"min": -8, "max": 8}, "not": ["0"]},
+            {"name": "c3", "int": {"min": -8, "max": 8}, "not": ["0", "-{c1}"]},
+            {"name": "c4", "int": {"min": -8, "max": 8}, "not": ["0", "-{c2}"]},
+            {"name": "c5", "int": {"min": -8, "max": 8}, "not": ["0"]},
+            {"name": "c6", "int": {"min": -8, "max": 8}, "not": ["0"]},
+            {"name": "c7", "int": {"min": -8, "max": 8}, "not": ["0", "-{c5}"]},
+            {"name": "c8", "int": {"min": -8, "max": 8}, "not": ["0", "-%%({c2}+{c4})-{c5}%%"]},
+            {"name": "op1", "or": ["", "-"]},
+            {"name": "op2", "or": ["", "-"]},
+            {"name": "v1", "or": ["d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]}
+          ]
+        },
+        {
+          "_desc": "Kwadratisch - product-som methode - niks voor x^2",
+          "text": "$$x^2+%%{c1}+{c2}%%x+%%{c1}*{c2}%%=0$$",
+          "answer": "$$x=%%-1*{c1}%%\\vee x=%%-1*{c2}%%$$",
+          "steps": [
+            "Product-som: $$(x+{c1})(x+{c2})=0$$",
+            "$$x+{c1}=0\\vee x+{c2}=0$$",
+            "$$x=%%-1*{c1}%%\\vee x=%%-1*{c2}%%$$"
+          ],
+          "settings": {
+            "replaceDoubleOperators": true
+          },
+          "parameters": [
+            {"name": "c1", "int": {"min": -12, "max": 12}, "not": ["0"]},
+            {"name": "c2", "int": {"min": -12, "max": 12}, "not": ["0", "-{c1}"]}
+          ]
+        },
+        {
+          "_desc": "Kwadratisch - product-som methode - getal voor x^2",
+          "text": "$${c3}x^2+%%{c3}*({c1}+{c2})%%x+%%{c3}*{c1}*{c2}%%=0$$",
+          "answer": "$$x=%%-1*{c1}%%\\vee x=%%-1*{c2}%%$$",
+          "steps": [
+            "Delen door $${c3}$$ geeft $$x^2+%%{c1}+{c2}%%x+%%{c1}*{c2}%%=0$$",
+            "Product-som: $$(x+{c1})(x+{c2})=0$$",
+            "$$x+{c1}=0\\vee x+{c2}=0$$",
+            "$$x=%%-1*{c1}%%\\vee x=%%-1*{c2}%%$$"
+          ],
+          "settings": {
+            "replaceDoubleOperators": true
+          },
+          "parameters": [
+            {"name": "c1", "int": {"min": -12, "max": 12}, "not": ["0"]},
+            {"name": "c2", "int": {"min": -12, "max": 12}, "not": ["0", "-{c1}"]},
+            {"name": "c3", "int": {"min": -4, "max": 4}, "not": ["0", "1"]}
+          ]
+        },
+        {
+          "_desc": "Kwadratisch - al ontbonden",
+          "text": "$$({c1}{v1}+{c2})({c3}{v1}+{c4})=0$$",
+          "answer": "$$x=%%-1*{c1}%%\\vee x=%%-1*{c2}%%$$",
+          "steps": [
+            "$$({c1}{v1}-{c2})({c3}{v1}-{c4})=0$$",
+            "$${c1}{v1}-{c2}=0 \\vee {c3}{v1}-{c4}=0$$",
+            "$${c1}{v1}={c2} \\vee {c3}{v1}={c4}$$",
+            "$${v1}=\\frac{{c2}}{{c1}}=%%{c2}/{c1}%% \\vee {v1}=\\frac{{c4}}{{c3}}=%%{c4}/{c3}%%$$"
+          ],
+          "settings": {
+            "replaceDoubleOperators": true
+          },
+          "parameters": [
+            {"name": "c1", "int": {"min": -6, "max": 6}, "not": ["0"]},
+            {"name": "c2", "int": {"min": -12, "max": 12}, "not": ["0"]},
+            {"name": "c3", "int": {"min": -6, "max": 6}, "not": ["0"]},
+            {"name": "c4", "int": {"min": -12, "max": 12}, "not": ["0"]},
+            {"name": "v1", "or": ["d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]}
+          ]
+        },
+        {
+          "_desc": "Kwadratisch - x buiten haakjes halen",
+          "text": "$${c1}{v1}^2-{c2}{v1}=0$$",
+          "answer": "$${v1}=0\\vee {v1}=\\frac{{c2}}{{c1}}=%%{c2}/{c1}%%$$",
+          "steps": [
+            "$${c1}{v1}^2-{c2}{v1}=0$$",
+            "$${v1}({c1}{v1}-{c2})=0$$",
+            "$${v1}=0\\vee {c1}{v1}-{c2}=0$$",
+            "$${v1}=0\\vee {c1}{v1}={c2}$$",
+            "$${v1}=0\\vee {v1}=\\frac{{c2}}{{c1}}=%%{c2}/{c1}%%$$"
+          ],
+          "settings": {
+            "replaceDoubleOperators": true
+          },
+          "parameters": [
+            {"name": "c1", "int": {"min": -12, "max": 12}, "not": ["0"]},
+            {"name": "c2", "int": {"min": -12, "max": 12}, "not": ["0", "-{c1}"]},
+            {"name": "v1", "or": ["d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]}
+          ]
+        }
+      ]
+    }
+  ]
+}
