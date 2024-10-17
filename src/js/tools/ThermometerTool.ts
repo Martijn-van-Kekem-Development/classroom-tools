@@ -5,6 +5,7 @@ let stepSize = 10;
 function init() {
     startRange = Number(prompt("Laagste temperatuur", "-50") ?? -50);
     endRange = Number(prompt("Hoogste temperatuur", "50") ?? 50);
+    stepSize = Number(prompt("Stapgrootte", "10") ?? 10);
     let container = document.getElementById("list_steps");
     for (let i = endRange; i >= startRange; i -= stepSize) {
         let el = document.createElement("li");
