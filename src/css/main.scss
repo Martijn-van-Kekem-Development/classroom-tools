@@ -46,8 +46,12 @@ html, body {
 }
 
 li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     padding-left: 0.5rem;
+}
+
+div ol li ol li {
+    margin-bottom: 0.5rem;
 }
 
 div > ol > li::marker {
