@@ -8,12 +8,17 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
     <script src="js/tools/BingoTool.js" type="module"></script>
-    <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/bingo.css" />
 </head>
 <body>
 <div class="container">
     <div class="inner">
+        <header>
+            <h1>Classroom Tools | By Martijn van Kekem</h1>
+            <div class="links">
+                <a href=".">Show all available tools</a>
+            </div>
+        </header>
         <div class="step small" data-step="-2">
             Er kunnen niet genoeg unieke opgaven gegenereerd worden met het opgegeven template. Pas het aantal of formaat van de bingokaarten aan, of kies een andere template.
         </div>
@@ -21,7 +26,7 @@
             De opgegeven template heeft geen geldig formaat. Ververs de pagina en probeer het opnieuw met een andere template.
         </div>
         <div class="step active small" data-step="0">
-            <h1>Bingo</h1>
+            <h2>Bingo</h2>
             <form enctype="multipart/form-data">
                 <label for="file">Kies de template die je wilt gebruiken:</label>
                 <input id="file" name="file" type="file" />
@@ -29,7 +34,7 @@
             <br><br>
             <a href="https://github.com/Martijn-van-Kekem-Development/classroom-tools/tree/main/templates" target="_blank">Bekijk beschikbare templates</a>
         </div>
-        <div class="step" data-step="1">
+        <div class="step small" data-step="1">
             <h2 id="label_templateName"></h2>
             <label for="input_amount">
                 Aantal bingokaarten:
