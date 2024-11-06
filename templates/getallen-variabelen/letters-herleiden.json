@@ -1,6 +1,67 @@
 {
     "name": "Getallen & Variabelen - Letters herleiden",
     "categories": [
+	{
+            "name": "Vermenigvuldigen",
+            "exercises": [
+                {
+		    "_desc": "ax * by",
+                    "text": "$${c1}{v2}\\cdot{c2}{v1}$$",
+                    "answer": "$$%%{c1}*{c2}%%{v1}{v2}$$",
+                    "parameters": [
+			{"name": "v1", "or": ["a", "b", "c", "d", "e", "f", "g", "h"]},                    
+			{"name": "v2", "or": ["m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]},                    
+                        {"name": "c1", "int": {"min": -9, "max": 9}, "not": ["0", "-1", "1"]},
+                        {"name": "c2", "int": {"min": -9, "max": 9}, "not": ["0", "-1", "1"]}
+		     ]
+                },
+                {
+		    "_desc": "ax * by * cz",
+                    "text": "$${c1}{v2}\\cdot{c2}{v1}\\cdot{c3}{v3}$$",
+                    "answer": "$$%%{c1}*{c2}*{c3}%%{v1}{v2}{v3}$$",
+                    "parameters": [
+			{"name": "v1", "or": ["a", "b", "c", "d", "e", "f", "g", "h"]},                    
+			{"name": "v2", "or": ["m", "n", "o", "p", "q", "r", "s"]},                    
+			{"name": "v3", "or": ["t", "u", "v", "w", "x", "y", "z"]},                    
+                        {"name": "c1", "int": {"min": -4, "max": 4}, "not": ["0", "-1", "1"]},
+                        {"name": "c2", "int": {"min": -4, "max": 4}, "not": ["0", "-1", "1"]},
+                        {"name": "c3", "int": {"min": -4, "max": 4}, "not": ["0", "-1", "1"]}
+		     ]
+                },
+		{
+		    "_desc": "Los getal keer letter",
+                    "text": "$${c1}\\cdot{c2}{v1}$$",
+                    "answer": "$$%%{c1}*{c2}%%{v1}$$",
+                    "parameters": [
+			{"name": "v1", "or": ["a", "b", "c", "d", "e", "f", "g", "h"]},                
+                        {"name": "c1", "int": {"min": -4, "max": 4}, "not": ["0", "-1"]},
+                        {"name": "c2", "int": {"min": -4, "max": 4}, "not": ["0", "-1", "1"]}
+		     ]
+                },
+		{
+		    "_desc": "Losse letters plus elkaar",
+                    "text": "$${v1}%s\"+{v1}\".repeat({c1})%s$$",
+                    "answer": "$$%%{c1}+1%%{v1}$$",
+                    "parameters": [
+			{"name": "v1", "or": ["a", "b", "c", "d", "e", "f", "g", "h"]},                
+                        {"name": "c1", "int": {"min": 3, "max": 8}}
+		     ]
+                },
+		{
+		    "_desc": "Verschillend door elkaar",
+                    "text": "$${c3}{v3}\\cdot({v1}%s\"+{v1}\".repeat({c1})%s)\\cdot{c2}{v2}$$",
+                    "answer": "$$%%({c1}+1)*{c2}*{c3}%%{v1}{v2}{v3}$$",
+                    "parameters": [
+			{"name": "v1", "or": ["a", "b", "c", "d", "e", "f", "g", "h"]},                    
+			{"name": "v2", "or": ["m", "n", "o", "p", "q", "r", "s"]},                    
+			{"name": "v3", "or": ["t", "u", "v", "w", "x", "y", "z"]},                    
+                        {"name": "c1", "int": {"min": 3, "max": 5}},
+                        {"name": "c2", "int": {"min": -4, "max": 4}, "not": ["0", "-1", "1"]},
+                        {"name": "c3", "int": {"min": -4, "max": 4}, "not": ["0", "-1", "1"]}
+		     ]
+                }
+            ]
+        },
         {
             "name": "Optellen & aftrekken - Basis",
             "exercises": [
