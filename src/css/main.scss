@@ -35,7 +35,7 @@ header {
     justify-content: center;
 }
 
-.container .inner .step {
+.container .inner .step:not(.full-screen) {
     margin: 0 auto;
     max-width: 800px;
 }
