@@ -98,11 +98,21 @@ export class TemplateParser {
      * @param finished Whether this is the final calculation step.
      */
     private replaceCalculations(input: string, settings: ExerciseSettings, finished = false): string {
+        // Replace numeric outputs
         let inputMatches = input.matchAll(/%%([^%]+)%%/g);
         for (let match of inputMatches) {
             let value = match[0];
             let calc = TemplateParser.sanitize(match[1]);
             let calcValue = this.truncate(Number(eval(calc)), finished);
+            input = input.replace(value, calcValue);
+        }
+
+        // Replace string outputs
+        let inputMatches = input.matchAll(/%s([^%]+)%s/g);
+        for (let match of inputMatches) {
+            let value = match[0];
+            let calc = TemplateParser.sanitize(match[1]);
+            let calcValue = eval(calc);
             input = input.replace(value, calcValue);
         }
 
