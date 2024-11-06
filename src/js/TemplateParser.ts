@@ -108,8 +108,8 @@ export class TemplateParser {
         }
 
         // Replace string outputs
-        let inputMatches = input.matchAll(/%s([^%]+)%s/g);
-        for (let match of inputMatches) {
+        let stringMatches = input.matchAll(/%s([^%]+)%s/g);
+        for (let match of stringMatches) {
             let value = match[0];
             let calc = TemplateParser.sanitize(match[1]);
             let calcValue = eval(calc);
